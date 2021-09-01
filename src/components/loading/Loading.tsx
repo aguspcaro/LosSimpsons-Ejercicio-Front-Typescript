@@ -12,7 +12,7 @@ interface props {
     loading?:boolean;
 }
 
-const styles = {
+const styles:styles = {
     marginBottom:"1em",
     marginTop: "1em",
     width: "10em",
@@ -26,7 +26,7 @@ const Loading = (props:props) => {
         return (
 
             <ReactLoading
-                style={styles}
+                {...styles}
                 type="bars"
             />
         )
