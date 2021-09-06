@@ -8,13 +8,13 @@ interface styles  {
     color?: string
 }
 
-interface props {
+interface Props {
     loading?:boolean;
 }
 
-const styles:styles = {
-    marginBottom:"1em",
-    marginTop: "1em",
+
+const styles = {
+    height: '50px',
     width: "10em",
     color: "purple"
 }

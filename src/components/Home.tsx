@@ -13,7 +13,7 @@ const Home = () => {
 
     // Estados
     const [characters, setCharacters] = useState([]);
-    const [listaCharacters , setListaCharacters] = useState([]);
+    const [listaCharacters , setListaCharacters] = useState<string[]>([]);
     const [busqueda , setBusqueda] = useState("");
     const [loading , setLoading] = useState(true);
 
