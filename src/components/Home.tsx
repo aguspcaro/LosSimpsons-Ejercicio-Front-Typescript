@@ -5,17 +5,20 @@ import Header from "./header/Header";
 import Loading from "./loading/Loading";
 
 // extras
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Search from "./header/search/Search";
+
+type Event = React.ChangeEvent<HTMLInputElement>;
+
 
 const Home = () => {
 
     // Estados
-    const [characters, setCharacters] = useState([]);
-    const [listaCharacters , setListaCharacters] = useState([]);
-    const [busqueda , setBusqueda] = useState("");
-    const [loading , setLoading] = useState(true);
+    const [characters, setCharacters] = useState<string[]>([]);
+    const [listaCharacters , setListaCharacters] = useState<string[]>([]);
+    const [busqueda , setBusqueda] = useState<string>("");
+    const [loading , setLoading] = useState<boolean>(true);
 
     
     // API
@@ -42,15 +45,15 @@ const Home = () => {
 
 
     // Agarramos el valor que viene por el input y le aplicamos la funcion filtrar
-    const handleChange:any = (e:any) => {
+    const handleChange = (e: Event) => {
         setBusqueda(e.target.value); // vamos a mostrarle al usuario lo que esta escribiendo
         filtrar(e.target.value); // vamos a filtrar lo que viene por value y asignarselo al estado setCharacters
     };
 
 
     //  Creamos una funcion que filtre a el estado "lista de characters", en este vamos a tener toda la api. Y el filtrado, lo deje en characters
-    const filtrar:any = (terminoBusqueda:any) =>{
-        let resultado:any = listaCharacters.filter((elemento:any)=>{
+    const filtrar = (terminoBusqueda:string) =>{
+        let resultado = listaCharacters.filter((elemento: any)=>{
             if(elemento.character.toString().toLowerCase().includes(terminoBusqueda.toLowerCase()) || elemento.quote.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())){
                 return elemento;
             }
