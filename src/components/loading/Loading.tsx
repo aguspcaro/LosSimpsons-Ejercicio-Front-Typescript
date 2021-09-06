@@ -19,7 +19,7 @@ const styles = {
     color: "purple"
 }
 
-const Loading = (props:props) => {
+const Loading = (props:Props) => {
 
     if(props.loading) {
 
